@@ -2,73 +2,84 @@
 
 public static class ColorUtility 
 {
-	// From: http://answers.unity3d.com/questions/701956/hsv-to-rgb-without-editorguiutilityhsvtorgb.html
+	// From: https://github.com/MattRix/UnityDecompiled/blob/cc432a3de42b53920d5d5dae85968ff993f4ec0e/UnityEditor/UnityEditor/EditorGUIUtility.cs
 	public static Color HSVToRGB(float H, float S, float V)
 	{
+		Color white = Color.white;
 		if (S == 0f)
 		{
-			return new Color(V,V,V);
-		}
-		else if (V == 0f)
-		{
-			return Color.black;
+			white.r = V;
+			white.g = V;
+			white.b = V;
 		}
 		else
 		{
-			Color col = Color.black;
-			float Hval = H * 6f;
-			int sel = Mathf.FloorToInt(Hval);
-			float mod = Hval - sel;
-			float v1 = V * (1f - S);
-			float v2 = V * (1f - S * mod);
-			float v3 = V * (1f - S * (1f - mod));
-			switch (sel + 1)
+			if (V == 0f)
 			{
-			case 0:
-				col.r = V;
-				col.g = v1;
-				col.b = v2;
-				break;
-			case 1:
-				col.r = V;
-				col.g = v3;
-				col.b = v1;
-				break;
-			case 2:
-				col.r = v2;
-				col.g = V;
-				col.b = v1;
-				break;
-			case 3:
-				col.r = v1;
-				col.g = V;
-				col.b = v3;
-				break;
-			case 4:
-				col.r = v1;
-				col.g = v2;
-				col.b = V;
-				break;
-			case 5:
-				col.r = v3;
-				col.g = v1;
-				col.b = V;
-				break;
-			case 6:
-				col.r = V;
-				col.g = v1;
-				col.b = v2;
-				break;
-			case 7:
-				col.r = V;
-				col.g = v3;
-				col.b = v1;
-				break;
+				white.r = 0f;
+				white.g = 0f;
+				white.b = 0f;
 			}
-			col.r = Mathf.Clamp(col.r, 0f, 1f);
-			col.g = Mathf.Clamp(col.g, 0f, 1f);
-			col.b = Mathf.Clamp(col.b, 0f, 1f);
-			return col;
+			else
+			{
+				white.r = 0f;
+				white.g = 0f;
+				white.b = 0f;
+				float num = H * 6f;
+				int num2 = (int)Mathf.Floor(num);
+				float num3 = num - (float)num2;
+				float num4 = V * (1f - S);
+				float num5 = V * (1f - S * num3);
+				float num6 = V * (1f - S * (1f - num3));
+				int num7 = num2;
+				switch (num7 + 1)
+				{
+				case 0:
+					white.r = V;
+					white.g = num4;
+					white.b = num5;
+					break;
+				case 1:
+					white.r = V;
+					white.g = num6;
+					white.b = num4;
+					break;
+				case 2:
+					white.r = num5;
+					white.g = V;
+					white.b = num4;
+					break;
+				case 3:
+					white.r = num4;
+					white.g = V;
+					white.b = num6;
+					break;
+				case 4:
+					white.r = num4;
+					white.g = num5;
+					white.b = V;
+					break;
+				case 5:
+					white.r = num6;
+					white.g = num4;
+					white.b = V;
+					break;
+				case 6:
+					white.r = V;
+					white.g = num4;
+					white.b = num5;
+					break;
+				case 7:
+					white.r = V;
+					white.g = num6;
+					white.b = num4;
+					break;
+				}
+				white.r = Mathf.Clamp(white.r, 0f, 1f);
+				white.g = Mathf.Clamp(white.g, 0f, 1f);
+				white.b = Mathf.Clamp(white.b, 0f, 1f);
+			}
 		}
+		return white;
 	}
 }

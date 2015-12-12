@@ -8,6 +8,7 @@ public class ControlScale : MonoBehaviour
 
 	public float scaleSpeed = 45.0f;
 	public float startingScale = 12.0f;
+
 	public const float MinScale = 1.0f;
 	public const float MaxScale = 100.0f;
 
