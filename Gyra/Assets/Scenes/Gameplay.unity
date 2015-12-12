@@ -378,6 +378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleSpeed: 9
+  minScale: 2
+  maxScale: 25
 --- !u!23 &2078275612
 MeshRenderer:
   m_ObjectHideFlags: 0
