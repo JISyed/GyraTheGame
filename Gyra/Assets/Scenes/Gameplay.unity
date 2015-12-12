@@ -327,7 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24843669b458a429c844328aa9f2739f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 30
+  minRotateSpeed: 76.6999969
+  maxRotateSpeed: 186.399994
 --- !u!1 &1962772568
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,8 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c3b5eece1054774942e51bc73e7d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minScale: 4
-  maxScale: 20
+  minScale: 4.48000002
+  maxScale: 22.2999992
 --- !u!23 &2078275612
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -488,6 +489,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minHue: 0
-  maxHue: .795000017
+  maxHue: .529999971
   saturation: .802999973
   lightness: .493999988

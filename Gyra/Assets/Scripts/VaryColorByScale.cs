@@ -24,6 +24,6 @@ public class VaryColorByScale : MonoBehaviour
 		this.currentHue = ControlScale.Rescale(rawScale, this.minHue, this.maxHue);
 
 		this.theMaterial.color = ColorUtility.HSVToRGB(this.currentHue, this.saturation, this.lightness);
-		this.theMaterial.SetColor("_EmissionColor", ColorUtility.HSVToRGB(this.currentHue, 0.7f, 0.4f));
+		this.theMaterial.SetColor("_EmissionColor", ColorUtility.HSVToRGB(this.currentHue, 1.0f, 0.5f));
 	}
 }
