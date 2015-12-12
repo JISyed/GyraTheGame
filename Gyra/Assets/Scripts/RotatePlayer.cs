@@ -2,7 +2,6 @@
 
 public class RotatePlayer : MonoBehaviour 
 {
-	//public float rotateSpeed = 30.0f;
 	public float minRotateSpeed = 20.0f;
 	public float maxRotateSpeed = 40.0f;
 

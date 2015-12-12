@@ -22,6 +22,6 @@ public class MoveFoward : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//this.theRigidBody.AddForce(this.theTransform.forward * (this.speed* Time.deltaTime), ForceMode.Force);
+		this.theRigidBody.AddForce(this.theTransform.forward * (this.speed* Time.deltaTime), ForceMode.Force);
 	}
 }
