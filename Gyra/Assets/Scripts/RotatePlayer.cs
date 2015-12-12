@@ -2,7 +2,7 @@
 
 public class RotatePlayer : MonoBehaviour 
 {
-	public float rotateSpeed = 9.0f;
+	public float rotateSpeed = 30.0f;
 
 	private Transform theTransform;	// Caching for performance
 
