@@ -5,6 +5,9 @@ using System.Collections;
 public class MoveFoward : MonoBehaviour 
 {
 	public float speed = 10.0f;
+	public bool	accelerate = false;
+	public float acceleration = 0.5f;
+	public float maxSpeed = 50.0f;
 
 	private Transform theTransform;
 	private Rigidbody theRigidBody;
@@ -16,12 +19,21 @@ public class MoveFoward : MonoBehaviour
 		this.theRigidBody = this.GetComponent<Rigidbody>();
 
 		// Quick start
-		this.theRigidBody.AddForce(this.theTransform.forward * this.speed, ForceMode.Impulse);
+		//this.theRigidBody.AddForce(this.theTransform.forward * (this.speed * 0.6f), ForceMode.Impulse);
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
-		this.theRigidBody.AddForce(this.theTransform.forward * (this.speed* Time.deltaTime), ForceMode.Force);
+		if(this.accelerate)
+		{
+			this.speed += this.acceleration * Time.deltaTime;
+			if(this.speed > this.maxSpeed)
+			{
+				this.speed = this.maxSpeed;
+			}
+		}
+
+		this.theRigidBody.AddForce(this.theTransform.forward * (this.speed * Time.deltaTime), ForceMode.Impulse);
 	}
 }
