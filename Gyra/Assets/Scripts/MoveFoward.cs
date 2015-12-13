@@ -36,4 +36,6 @@ public class MoveFoward : MonoBehaviour
 
 		this.theRigidBody.AddForce(this.theTransform.forward * (this.speed * Time.deltaTime), ForceMode.Impulse);
 	}
+
+
 }
