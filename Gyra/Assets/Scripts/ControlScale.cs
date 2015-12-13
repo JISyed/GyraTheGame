@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class ControlScale : MonoBehaviour 
 {
@@ -8,6 +9,9 @@ public class ControlScale : MonoBehaviour
 
 	public float scaleSpeed = 45.0f;
 	public float startingScale = 12.0f;
+	public float flinchShrinkTime = 1.0f;
+	public float flinchShrinkSpeed = 5.0f;
+
 
 	public const float MinScale = 1.0f;
 	public const float MaxScale = 100.0f;
@@ -57,12 +61,33 @@ public class ControlScale : MonoBehaviour
 				this.currentScaleValue = ControlScale.MinScale;
 			}
 		}
+		
+	}
+
+	private void PrivateShrinkAnimation()
+	{
+		StartCoroutine(Flinch());
+	}
+
+	IEnumerator Flinch()
+	{
+		float startTime = Time.time;
+		float endTime = startTime + this.flinchShrinkTime;
+		while(Time.time < endTime)
+		{
+			this.currentScaleValue -= this.flinchShrinkSpeed * Time.deltaTime;
+			if(this.currentScaleValue < ControlScale.MinScale)
+			{
+				this.currentScaleValue = ControlScale.MinScale;
+			}
+			yield return null;
+		}
 	}
 
 
 
 	//
-	// Static Utilities
+	// Static Methods
 	//
 
 	/// <summary>
@@ -79,6 +104,15 @@ public class ControlScale : MonoBehaviour
 		fromValue -= ControlScale.MinScale;
 		float toValue = convertRatio * fromValue;
 		return toValue + toMin;
+	}
+
+	/// <summary>
+	/// 	The shrink animation parameters are set in the inspector for ControlScale script
+	/// </summary>
+	public static void ShrinkForTime()
+	{
+		Debug.Assert(ControlScale.singetonInstance != null, "ControlScale singeton needs to exist before using! Make one in the scene.");
+		ControlScale.singetonInstance.PrivateShrinkAnimation();
 	}
 
 
