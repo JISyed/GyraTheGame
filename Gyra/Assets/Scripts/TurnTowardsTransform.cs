@@ -6,14 +6,15 @@ public class TurnTowardsTransform : MonoBehaviour
 	public Transform target;
 	[Range(0.0f, 1.0f)][SerializeField] private float accuracy = 0.9f;
 	[Range(0.0f, 90.0f)] public float leastAccurateAngle = 30.0f;
-	
+	[Range(0.5f, 1.0f)] public float maxAllowedAccuracy = 0.875f;
+
 	private Transform theTransform;
 	private Rigidbody theRigidBody;
 	private float invertAccuracy = 0.1f;	// Actual value used for accuracy logic
 	private float angleAccuracy = 0.0f;
 	//private float oldAngularDrag;
 	//private float stopperAngularDrag = 10000.0f;
-	private float maxAllowedAccuracy = 0.94f;
+
 
 	// Use this for initialization
 	void Start () 
@@ -56,6 +57,8 @@ public class TurnTowardsTransform : MonoBehaviour
 		else
 		{
 			this.theRigidBody.AddTorque(-this.theRigidBody.angularVelocity, ForceMode.Impulse);
+			this.theRigidBody.AddTorque(-this.theRigidBody.angularVelocity, ForceMode.Force);
+			//this.theRigidBody.angularVelocity = Vector3.zero;
 		}
 	}
 

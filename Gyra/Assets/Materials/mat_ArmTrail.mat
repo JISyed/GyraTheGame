@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: mat_DeadEnemy
-  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: mat_ArmTrail
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -126,25 +126,13 @@ Material:
       data:
         first:
           name: _Metallic
-        second: .74000001
-      data:
-        first:
-          name: _InvFade
-        second: 1
+        second: 0
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: .75, g: .174949303, b: .00551471114, a: 1}
+        second: {r: .191176474, g: .330628842, b: 1, a: 1}
       data:
         first:
           name: _Color
-        second: {r: .264705896, g: .264705896, b: .264705896, a: 1}
-      data:
-        first:
-          name: _TintColor
-        second: {r: .0845334455, g: .0202205852, b: .125, a: .5}
-      data:
-        first:
-          name: _EmisColor
-        second: {r: .200000003, g: .200000003, b: .200000003, a: 0}
+        second: {r: .492863327, g: .563089192, b: .632352948, a: 1}

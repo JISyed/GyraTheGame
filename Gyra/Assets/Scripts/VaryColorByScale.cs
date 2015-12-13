@@ -3,7 +3,7 @@
 public class VaryColorByScale : MonoBehaviour 
 {
 	[Range(0.0f, 1.0f)]public float minHue = 0.0f;
-	[Range(0.0f, 1.0f)]public float maxHue = 0.9f;
+	[Range(0.0f, 1.0f)]public float maxHue = 0.53f;
 	[Range(0.0f, 1.0f)]public float saturation = 0.9f;
 	[Range(0.0f, 1.0f)]public float lightness = 0.5f;
 
