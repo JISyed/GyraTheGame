@@ -4,7 +4,7 @@
 public class TurnTowardsTransform : MonoBehaviour 
 {
 	public Transform target;
-	[Range(0.0f, 1.0f)] public float accuracy = 0.9f;
+	[Range(0.0f, 1.0f)][SerializeField] private float accuracy = 0.9f;
 	[Range(0.0f, 90.0f)] public float leastAccurateAngle = 30.0f;
 	
 	private Transform theTransform;
@@ -13,6 +13,7 @@ public class TurnTowardsTransform : MonoBehaviour
 	private float angleAccuracy = 0.0f;
 	//private float oldAngularDrag;
 	//private float stopperAngularDrag = 10000.0f;
+	private float maxAllowedAccuracy = 0.94f;
 
 	// Use this for initialization
 	void Start () 
@@ -22,6 +23,12 @@ public class TurnTowardsTransform : MonoBehaviour
 
 		this.theRigidBody.AddTorque(Vector3.up * 0.5f, ForceMode.Impulse);
 		//this.oldAngularDrag = this.theRigidBody.angularDrag;
+
+		// Too much accuracy causes "angle tunneling"
+		if(this.accuracy > this.maxAllowedAccuracy)
+		{
+			this.accuracy = this.maxAllowedAccuracy;
+		}
 
 		Debug.Assert(this.target != null, "Target transform needs to be applied for TurnTowardsTransform");
 	}
@@ -58,5 +65,32 @@ public class TurnTowardsTransform : MonoBehaviour
 	private float InvertNormalization(float old)
 	{
 		return Mathf.Abs(old - 1.0f);
+	}
+
+
+
+	//
+	// Propeties
+	//
+
+	public float Accuracy
+	{
+		get
+		{
+			return this.accuracy;
+		}
+	}
+
+	public void SetAccuracy(float newAccuracy)
+	{
+		// Clamp
+		newAccuracy = Mathf.Clamp(newAccuracy, 0.0f, 1.0f);
+
+		// Set
+		this.accuracy = newAccuracy;
+		if(this.accuracy > this.maxAllowedAccuracy)
+		{
+			this.accuracy = this.maxAllowedAccuracy;
+		}
 	}
 }

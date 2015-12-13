@@ -127,5 +127,6 @@ public class SpawnAlongParemeter : MonoBehaviour
 		TurnTowardsTransform turnScript = newSpawned.GetComponent<TurnTowardsTransform>();
 		Debug.Assert(turnScript != null, "TurnTowardsTransform Script not found in the Enemy prefab!");
 		turnScript.target = this.target;
+		turnScript.SetAccuracy(turnScript.Accuracy - this.progressIntervalOffset);
 	}
 }

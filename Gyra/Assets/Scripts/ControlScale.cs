@@ -71,14 +71,14 @@ public class ControlScale : MonoBehaviour
 
 	IEnumerator Flinch()
 	{
-		float startTime = Time.time;
-		float endTime = startTime + this.flinchShrinkTime;
+		float endTime = Time.time + this.flinchShrinkTime;
 		while(Time.time < endTime)
 		{
 			this.currentScaleValue -= this.flinchShrinkSpeed * Time.deltaTime;
 			if(this.currentScaleValue < ControlScale.MinScale)
 			{
 				this.currentScaleValue = ControlScale.MinScale;
+				break;
 			}
 			yield return null;
 		}
