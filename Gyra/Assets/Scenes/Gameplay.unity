@@ -99,7 +99,7 @@ GameObject:
   - 23: {fileID: 9609572}
   m_Layer: 0
   m_Name: BattleArm
-  m_TagString: Untagged
+  m_TagString: Arm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleSpeed: 45
   startingScale: 12
-  flinchShrinkTime: .0500000007
+  flinchShrinkTime: .119999997
   flinchShrinkSpeed: 360
 --- !u!4 &287318722
 Transform:
@@ -613,7 +613,7 @@ GameObject:
   - 114: {fileID: 2078275616}
   m_Layer: 0
   m_Name: Core
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
