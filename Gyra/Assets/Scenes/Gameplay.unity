@@ -229,13 +229,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abf7865dc410430894d32138bb8b18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnInterval: 1.5
+  minSpawnInterval: 2
   maxSpawnInterval: 3
+  smallestReducedInterval: .100000001
+  reductionSpeed: .00749999983
   spawnedPrefab: {fileID: 184816, guid: df374ff4011a642dc8f43c46d4f13623, type: 2}
   anchorPoint: {x: 0, y: 0, z: 0}
   verticalRadius: 40
   horizontalRadius: 50
   target: {fileID: 1354735976}
+  progressIntervalOffset: 0
 --- !u!4 &495760433
 Transform:
   m_ObjectHideFlags: 0

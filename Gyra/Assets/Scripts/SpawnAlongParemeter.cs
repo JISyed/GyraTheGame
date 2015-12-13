@@ -6,6 +6,8 @@ public class SpawnAlongParemeter : MonoBehaviour
 {
 	public float minSpawnInterval = 1.5f;
 	public float maxSpawnInterval = 3.0f;
+	public float smallestReducedInterval = 0.1f;
+	public float reductionSpeed = 0.1f;
 	public GameObject spawnedPrefab;
 	public Vector3 anchorPoint = Vector3.zero;
 	public float verticalRadius = 30.0f;
@@ -16,7 +18,9 @@ public class SpawnAlongParemeter : MonoBehaviour
 	private Vector3 leftHoriz;
 	private Vector3 topVertic;
 	private Vector3 bottomVertic;
+	public float progressIntervalOffset = 0.0f;
 	private bool stopRoutines = false;
+
 
 
 	// Use this for initialization
@@ -24,15 +28,16 @@ public class SpawnAlongParemeter : MonoBehaviour
 	{
 		Debug.Assert(this.spawnedPrefab != null, "Spawn Prefab needs to be defined in the spawner!");
 		Debug.Assert(this.target != null, "Spanwer needs a target!");
-		//this.SpawnPrefab();
-		//this.InvokeRepeating("SpawnPrefab", )
 		StartCoroutine(SpawnIndefinitely());
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if(this.progressIntervalOffset + this.minSpawnInterval > this.smallestReducedInterval)
+		{
+			this.progressIntervalOffset -= this.reductionSpeed * Time.deltaTime;
+		}
 	}
 
 	void OnDestroy()
@@ -68,6 +73,7 @@ public class SpawnAlongParemeter : MonoBehaviour
 		{
 			// Wait random times
 			float waitTime = Random.Range(this.minSpawnInterval, this.maxSpawnInterval);
+			waitTime += this.progressIntervalOffset;
 			yield return new WaitForSeconds(waitTime);
 
 			// Spawn
