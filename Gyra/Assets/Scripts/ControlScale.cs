@@ -119,6 +119,13 @@ public class ControlScale : MonoBehaviour
 	}
 
 
+	public static void DisableTheControls()
+	{
+		Debug.Assert(ControlScale.singetonInstance != null, "ControlScale singeton needs to exist before using! Make one in the scene.");
+		ControlScale.singetonInstance.disableControls = true;
+	}
+
+
 
 	//
 	// Properties

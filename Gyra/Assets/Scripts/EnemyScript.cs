@@ -19,11 +19,13 @@ public class EnemyScript : MonoBehaviour
 		if(other.gameObject.tag.Equals("Core"))
 		{
 			ControlScale.ShrinkForTime();
+			GameplayController.DecrementLives();
 			GameObject.Instantiate(this.coreCrashParticles, this.transform.position, this.transform.rotation);
 			Destroy(this.gameObject);
 		}
 		else if(other.gameObject.tag.Equals("Arm"))
 		{
+			GameplayController.IncrementScore(this.pointWorth);
 			GameObject.Instantiate(this.armCrashParticles, this.transform.position, other.gameObject.transform.rotation);
 			Destroy(this.gameObject);
 		}
