@@ -73,7 +73,7 @@ TrailRenderer:
       serializedVersion: 2
       rgba: 16777215
   m_MinVertexDistance: .100000001
-  m_Autodestruct: 1
+  m_Autodestruct: 0
 --- !u!114 &11471068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +114,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Autodestruct
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
