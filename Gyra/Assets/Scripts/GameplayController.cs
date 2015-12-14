@@ -162,5 +162,11 @@ public class GameplayController : MonoBehaviour
 		return GameplayController.singetonInstance.lives;
 	}
 
+	public static bool IsGameOver()
+	{
+		Debug.Assert(GameplayController.singetonInstance != null, "GamePlayController needs to exist to use IsGameOver()!");
+		return GameplayController.singetonInstance.isGameOver;
+	}
+
 
 }

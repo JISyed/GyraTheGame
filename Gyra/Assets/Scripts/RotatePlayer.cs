@@ -16,11 +16,14 @@ public class RotatePlayer : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		float rawScale = ControlScale.CurrentScaleValue;
-		float rotationSpeed = ControlScale.Rescale(rawScale, this.minRotateSpeed, this.maxRotateSpeed);
+		if(!GameplayController.IsGameOver())
+		{
+			float rawScale = ControlScale.CurrentScaleValue;
+			float rotationSpeed = ControlScale.Rescale(rawScale, this.minRotateSpeed, this.maxRotateSpeed);
 
-		Vector3 newRot = this.theTransform.eulerAngles;
-		newRot.Set(0.0f, newRot.y + rotationSpeed * Time.deltaTime, 0.0f);
-		this.theTransform.eulerAngles = newRot;
+			Vector3 newRot = this.theTransform.eulerAngles;
+			newRot.Set(0.0f, newRot.y + rotationSpeed * Time.deltaTime, 0.0f);
+			this.theTransform.eulerAngles = newRot;
+		}
 	}
 }
