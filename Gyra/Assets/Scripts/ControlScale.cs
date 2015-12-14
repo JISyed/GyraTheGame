@@ -9,8 +9,8 @@ public class ControlScale : MonoBehaviour
 
 	public float scaleSpeed = 45.0f;
 	public float startingScale = 12.0f;
-	public float flinchShrinkTime = 1.0f;
-	public float flinchShrinkSpeed = 5.0f;
+	public float flinchShrinkTime = 0.12f;
+	public float flinchShrinkSpeed = 360.0f;
 
 
 	public const float MinScale = 1.0f;
