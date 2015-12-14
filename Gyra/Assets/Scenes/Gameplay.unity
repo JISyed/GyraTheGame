@@ -283,8 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c0be92026b84f618fb786218700193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  livesText: {fileID: 0}
+  scoreText: {fileID: 1532442974}
+  livesText: {fileID: 1420288257}
+  startingLives: 10
 --- !u!4 &369923148 stripped
 Transform:
   m_PrefabParentObject: {fileID: 444048, guid: 445cd2a185982450e985616b9123e71d, type: 2}
@@ -966,7 +967,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 9236
 --- !u!222 &1420288258
 CanvasRenderer:
   m_ObjectHideFlags: 0
