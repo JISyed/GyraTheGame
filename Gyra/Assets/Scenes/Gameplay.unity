@@ -287,7 +287,7 @@ MonoBehaviour:
   livesText: {fileID: 1420288257}
   gameOverPanel: {fileID: 756208030}
   highscoreTextObj: {fileID: 527169380}
-  startingLives: 1
+  startingLives: 100
 --- !u!4 &369923148 stripped
 Transform:
   m_PrefabParentObject: {fileID: 444048, guid: 445cd2a185982450e985616b9123e71d, type: 2}
