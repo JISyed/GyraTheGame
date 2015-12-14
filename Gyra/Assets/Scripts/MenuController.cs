@@ -80,4 +80,9 @@ public class MenuController : MonoBehaviour
 		this.creditsPanel.SetActive(false);
 	}
 
+	public void GoToGamePlay()
+	{
+		Application.LoadLevel(1);	// 1 should be the Gameplay scene
+	}
+
 }
