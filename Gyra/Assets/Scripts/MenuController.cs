@@ -6,7 +6,7 @@ public class MenuController : MonoBehaviour
 {
 	public UI.Text highscoreDisplay;
 	public GameObject helpPanel;
-	//public GameObject creditsPanel;
+	public GameObject creditsPanel;
 
 	private int highscore = 0;
 
@@ -15,13 +15,34 @@ public class MenuController : MonoBehaviour
 	{
 		Debug.Assert(this.highscoreDisplay != null, "Menu Controller needs a UI.Text to display the highscore!");
 		Debug.Assert(this.helpPanel != null, "Menu Controller needs the gameobject for the Help Panel!");
+		Debug.Assert(this.creditsPanel != null, "Menu Controller needs the gameobject for the Credits Panel!");
 		this.helpPanel.SetActive(false);
+		this.creditsPanel.SetActive(false);
+		this.LoadHighscore();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if(Input.GetKeyUp(KeyCode.Escape))
+		{
+			if(this.helpPanel.activeSelf)
+			{
+				this.DeactivateHelpPanel();
+			}
+			else if(this.creditsPanel.activeSelf)
+			{
+				this.DeactivateCreditsPanel();
+			}
+			else
+			{
+				Application.Quit();
+				if(Application.isEditor)
+				{
+					Debug.Log("Application would quit in final builds.");
+				}
+			}
+		}
 	}
 
 
@@ -35,6 +56,7 @@ public class MenuController : MonoBehaviour
 		{
 			this.highscore = 0;
 		}
+		this.highscoreDisplay.text = this.highscore.ToString();
 	}
 
 
@@ -46,6 +68,16 @@ public class MenuController : MonoBehaviour
 	public void DeactivateHelpPanel()
 	{
 		this.helpPanel.SetActive(false);
+	}
+
+	public void ActivateCreditsPanel()
+	{
+		this.creditsPanel.SetActive(true);
+	}
+	
+	public void DeactivateCreditsPanel()
+	{
+		this.creditsPanel.SetActive(false);
 	}
 
 }

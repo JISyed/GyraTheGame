@@ -11,6 +11,7 @@ public class ControlScale : MonoBehaviour
 	public float startingScale = 12.0f;
 	public float flinchShrinkTime = 0.12f;
 	public float flinchShrinkSpeed = 360.0f;
+	public bool disableControls = false;
 
 
 	public const float MinScale = 1.0f;
@@ -44,24 +45,26 @@ public class ControlScale : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if(TwoButtonDelegator.GetGrowButton())
+		if(!this.disableControls)
 		{
-			this.currentScaleValue += (this.scaleSpeed * Time.deltaTime);
-			if(this.currentScaleValue > ControlScale.MaxScale)
+			if(TwoButtonDelegator.GetGrowButton())
 			{
-				this.currentScaleValue = ControlScale.MaxScale;
+				this.currentScaleValue += (this.scaleSpeed * Time.deltaTime);
+				if(this.currentScaleValue > ControlScale.MaxScale)
+				{
+					this.currentScaleValue = ControlScale.MaxScale;
+				}
+				
 			}
-			
-		}
-		else if(TwoButtonDelegator.GetShrinkButton())
-		{
-			this.currentScaleValue += (-this.scaleSpeed * Time.deltaTime);
-			if(this.currentScaleValue < ControlScale.MinScale)
+			else if(TwoButtonDelegator.GetShrinkButton())
 			{
-				this.currentScaleValue = ControlScale.MinScale;
+				this.currentScaleValue += (-this.scaleSpeed * Time.deltaTime);
+				if(this.currentScaleValue < ControlScale.MinScale)
+				{
+					this.currentScaleValue = ControlScale.MinScale;
+				}
 			}
 		}
-		
 	}
 
 	private void PrivateShrinkAnimation()
