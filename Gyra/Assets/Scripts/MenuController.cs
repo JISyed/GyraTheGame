@@ -43,6 +43,11 @@ public class MenuController : MonoBehaviour
 				}
 			}
 		}
+
+		if(Input.GetKeyUp(KeyCode.Return))
+		{
+			this.GoToGamePlay();
+		}
 	}
 
 
