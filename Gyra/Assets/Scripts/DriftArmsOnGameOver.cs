@@ -23,8 +23,11 @@ public class DriftArmsOnGameOver : MonoBehaviour
 	{
 		if(GameplayController.IsGameOver())
 		{
+			float rawScale = ControlScale.CurrentScaleValue;
+			float speedMultiplier = ControlScale.Rescale(rawScale, 1.0f, 4.0f);
+
 			Vector3 newPosition = this.theTransform.position;
-			newPosition = newPosition + this.transform.right * (this.driftSpeed * Time.deltaTime);
+			newPosition = newPosition + this.transform.right * (this.driftSpeed * speedMultiplier * Time.deltaTime);
 			this.theTransform.position = newPosition;
 
 			Vector3 newRotation = this.theTransform.rotation.eulerAngles;
