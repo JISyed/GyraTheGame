@@ -212,6 +212,9 @@ MonoBehaviour:
   pointWorth: 100
   coreCrashParticles: {fileID: 168442, guid: 7b29f6871f30741139a416874e26d026, type: 2}
   armCrashParticles: {fileID: 180536, guid: 6d424cc398bd446c6a1d680b40bd2b6b, type: 2}
+  soundPlayForAttackingCore: {fileID: 130070, guid: 6df4d41040e37412e9d0a4e1eace6bad,
+    type: 2}
+  soundPlayForDying: {fileID: 151442, guid: 8390c6f4d0d36455093d4d546ac7fc6d, type: 2}
 --- !u!135 &13576958
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -303,6 +306,14 @@ Prefab:
       propertyPath: accuracy
       value: .479999989
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundPlayForAttackingCore
+      value: 
+      objectReference: {fileID: 130070, guid: 6df4d41040e37412e9d0a4e1eace6bad, type: 2}
+    - target: {fileID: 0}
+      propertyPath: soundPlayForDying
+      value: 
+      objectReference: {fileID: 151442, guid: 8390c6f4d0d36455093d4d546ac7fc6d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 184816}
