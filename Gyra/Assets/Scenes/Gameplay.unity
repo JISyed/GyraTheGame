@@ -264,7 +264,7 @@ MonoBehaviour:
   livesText: {fileID: 1420288257}
   gameOverPanel: {fileID: 756208030}
   highscoreTextObj: {fileID: 527169380}
-  startingLives: 5
+  startingLives: 10
 --- !u!1 &495760431
 GameObject:
   m_ObjectHideFlags: 0

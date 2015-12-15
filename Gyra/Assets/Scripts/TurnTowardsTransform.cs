@@ -12,8 +12,6 @@ public class TurnTowardsTransform : MonoBehaviour
 	private Rigidbody theRigidBody;
 	private float invertAccuracy = 0.1f;	// Actual value used for accuracy logic
 	private float angleAccuracy = 0.0f;
-	//private float oldAngularDrag;
-	//private float stopperAngularDrag = 10000.0f;
 
 
 	// Use this for initialization
@@ -23,7 +21,6 @@ public class TurnTowardsTransform : MonoBehaviour
 		this.theRigidBody = this.GetComponent<Rigidbody>();
 
 		this.theRigidBody.AddTorque(Vector3.up * 0.5f, ForceMode.Impulse);
-		//this.oldAngularDrag = this.theRigidBody.angularDrag;
 
 		// Too much accuracy causes "angle tunneling"
 		if(this.accuracy > this.maxAllowedAccuracy)
@@ -52,13 +49,12 @@ public class TurnTowardsTransform : MonoBehaviour
 			}
 			facingFactor = this.InvertNormalization(facingFactor);
 			this.theRigidBody.AddTorque(Vector3.up * facingFactor, ForceMode.Force);
-			//this.theRigidBody.angularDrag = this.oldAngularDrag;
 		}
 		else
 		{
 			this.theRigidBody.AddTorque(-this.theRigidBody.angularVelocity, ForceMode.Impulse);
 			this.theRigidBody.AddTorque(-this.theRigidBody.angularVelocity, ForceMode.Force);
-			//this.theRigidBody.angularVelocity = Vector3.zero;
+			//this.theRigidBody.angularVelocity = Vector3.zero;	// Uncomment this to make the game crazy hard
 		}
 	}
 
