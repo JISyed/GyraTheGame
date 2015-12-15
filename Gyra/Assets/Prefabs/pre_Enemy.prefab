@@ -195,9 +195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  accuracy: .479999989
+  accuracy: .439999998
   leastAccurateAngle: 30
-  maxAllowedAccuracy: .875
+  maxAllowedAccuracy: .902999997
 --- !u!114 &11498304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,11 +300,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxAllowedAccuracy
-      value: .875
+      value: .902999997
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: accuracy
-      value: .479999989
+      value: .439999998
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: soundPlayForAttackingCore
