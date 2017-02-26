@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UI = UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameplayController : MonoBehaviour 
 {
@@ -124,7 +125,7 @@ public class GameplayController : MonoBehaviour
 	public void LeaveToMenu()
 	{
 		this.SaveHighscore();
-		Application.LoadLevel(0);	// Index 0 should be the Menu scene
+		SceneManager.LoadScene(0);	// Index 0 should be the Menu scene
 	}
 
 

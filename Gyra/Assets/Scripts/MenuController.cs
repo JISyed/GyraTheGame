@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UI = UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour 
 {
@@ -87,7 +88,7 @@ public class MenuController : MonoBehaviour
 
 	public void GoToGamePlay()
 	{
-		Application.LoadLevel(1);	// 1 should be the Gameplay scene
+		SceneManager.LoadScene(1);	// 1 should be the Gameplay scene
 	}
 
 }
