@@ -7,6 +7,7 @@ public class GameplayController : MonoBehaviour
 {
 	public UI.Text scoreText;
 	public UI.Text livesText;
+	public UI.Image exitBtnImage;
 	public GameObject gameOverPanel;
 	public GameObject highscoreTextObj;
 	public int startingLives = 10;
@@ -41,6 +42,7 @@ public class GameplayController : MonoBehaviour
 
 		this.SetScore(0);
 		this.SetLives(this.startingLives);
+		this.exitBtnImage.color = new Color(0.0f, 0.0f, 0.0f, 0.6902f);
 	}
 
 	void OnDestroy()
@@ -107,6 +109,8 @@ public class GameplayController : MonoBehaviour
 		{
 			this.isGameOver = true;
 			ControlScale.DisableTheControls();
+			this.exitBtnImage.color = new Color(0.9f, 0.9f, 0.9f, 0.4235f);
+			this.scoreText.color = new Color(1f, 1f, 1f, 1f);
 			this.gameOverPanel.SetActive(true);
 			if(this.score > this.highscore)
 			{
